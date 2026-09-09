@@ -1,8 +1,7 @@
 import { useParams, Link } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Helmet } from "react-helmet-async";
-import { ArrowLeft, Minus, Plus, ShoppingBag } from "lucide-react";
-import { useState } from "react";
+import { ArrowLeft } from "lucide-react";
 import {
   products,
   activeProducts,
@@ -13,12 +12,12 @@ import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 import RelatedProducts from "@/components/RelatedProducts";
 
 const ProductDetail = () => {
   const { id } = useParams();
-  const [quantity, setQuantity] = useState(1);
-  
+
   // Só produtos ativos são exibidos normalmente
   const product = getActiveProductById(Number(id));
   // Produto existe no cadastro, mas está oculto (active: false)?
@@ -44,13 +43,6 @@ const ProductDetail = () => {
       </div>
     );
   }
-
-  const hasDiscount = product.originalPrice > product.price;
-  const discount = hasDiscount
-    ? Math.round(
-        ((product.originalPrice - product.price) / product.originalPrice) * 100
-      )
-    : 0;
 
   const relatedProducts = activeProducts
     .filter((p) => p.id !== product.id && p.brand === product.brand)
@@ -103,14 +95,6 @@ const ProductDetail = () => {
                   className="w-full h-full object-cover"
                 />
               </div>
-              {/* Discount Badge */}
-              {hasDiscount && (
-                <div className="absolute top-4 left-4">
-                  <span className="bg-primary text-primary-foreground text-sm font-bold px-3 py-1.5 rounded">
-                    -{discount}%
-                  </span>
-                </div>
-              )}
             </motion.div>
 
             {/* Product Info */}
@@ -131,39 +115,10 @@ const ProductDetail = () => {
               </h1>
 
               {/* Price */}
-              <div className="flex items-baseline gap-3 mb-6">
+              <div className="mb-6">
                 <span className="text-3xl font-bold text-foreground">
                   R$ {product.price.toFixed(2).replace(".", ",")}
                 </span>
-                {hasDiscount && (
-                  <span className="text-lg text-muted-foreground line-through">
-                    R$ {product.originalPrice.toFixed(2).replace(".", ",")}
-                  </span>
-                )}
-              </div>
-
-              {/* Quantity Selector */}
-              <div className="flex items-center gap-4 mb-6">
-                <span className="text-muted-foreground">Quantidade:</span>
-                <div className="flex items-center border border-border rounded">
-                  <button
-                    onClick={() => setQuantity(Math.max(1, quantity - 1))}
-                    className="p-2 hover:bg-secondary/50 transition-colors"
-                    aria-label="Diminuir quantidade"
-                  >
-                    <Minus className="w-4 h-4" />
-                  </button>
-                  <span className="px-4 py-2 min-w-[3rem] text-center font-medium">
-                    {quantity}
-                  </span>
-                  <button
-                    onClick={() => setQuantity(quantity + 1)}
-                    className="p-2 hover:bg-secondary/50 transition-colors"
-                    aria-label="Aumentar quantidade"
-                  >
-                    <Plus className="w-4 h-4" />
-                  </button>
-                </div>
               </div>
 
               {/* CTA Button */}
@@ -174,10 +129,14 @@ const ProductDetail = () => {
                 className="w-full sm:w-auto"
               >
                 <Button variant="buy" size="lg" className="w-full sm:w-auto">
-                  <ShoppingBag className="w-5 h-5" />
-                  Comprar Agora
+                  <WhatsAppIcon className="h-5 w-5 shrink-0" />
+                  Tenho interesse
                 </Button>
               </a>
+              <p className="mt-3 text-sm text-muted-foreground max-w-md">
+                Você fala direto com a gente pelo WhatsApp para combinar
+                pagamento e entrega.
+              </p>
 
               {/* Description */}
               <div className="mt-8 pt-8 border-t border-border">

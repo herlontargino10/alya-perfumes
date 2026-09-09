@@ -20,6 +20,12 @@ import philosPuraImg from "@/assets/products/philos-pura.png";
 import liquidBrunImg from "@/assets/products/liquid-brun.webp";
 import marwaImg from "@/assets/products/marwa.webp";
 import afnan9pmImg from "@/assets/products/afnan-9pm.webp";
+import fakharHommeImg from "@/assets/products/fakhar-homme.jpg";
+import theKingdomImg from "@/assets/products/the-kingdom.webp";
+import turathiBlueImg from "@/assets/products/turathi-blue.webp";
+import pureArubaImg from "@/assets/products/pure-aruba.jpg";
+import turathiElectricImg from "@/assets/products/turathi-electric.webp";
+import clubDeNuitIntenseImg from "@/assets/products/club-de-nuit-intense.jpg";
 
 export type ProductGender = "feminino" | "masculino" | "unissex";
 
@@ -48,6 +54,14 @@ export interface Product {
    * aparecer no mesmo tamanho visual dos demais. Só afeta o card da vitrine.
    */
   imageContain?: boolean;
+  /**
+   * Zoom visual da imagem no card da vitrine, para fotos que vêm do fornecedor com
+   * muito espaço branco embutido. A imagem é exibida com `object-contain` (nada é
+   * recortado no arquivo) e recebe `transform: scale(imageZoom)` dentro do container
+   * com `overflow-hidden`. Ajuste por produto: use o menor valor que aproxime a
+   * presença visual dos demais SEM cortar frasco, tampa ou caixa. `1` = sem zoom.
+   */
+  imageZoom?: number;
   inStock: boolean; // 👈 novo
   slug?: string;
 }
@@ -285,7 +299,7 @@ export const products: Product[] = [
     price: 140.00,
     originalPrice: 140.00,
     image: philosPuraImg,
-    imageContain: true,
+    imageZoom: 1.14,
     inStock: true,
     slug: "philos-pura-100ml",
   },
@@ -300,7 +314,7 @@ export const products: Product[] = [
     price: 240.00,
     originalPrice: 240.00,
     image: liquidBrunImg,
-    imageContain: true,
+    imageZoom: 1.06,
     inStock: true,
     slug: "liquid-brun-100ml",
   },
@@ -315,6 +329,7 @@ export const products: Product[] = [
     price: 340.00,
     originalPrice: 340.00,
     image: marwaImg,
+    imageZoom: 1.28,
     inStock: true,
     slug: "marwa-edp-100ml",
   },
@@ -329,9 +344,99 @@ export const products: Product[] = [
     price: 180.00,
     originalPrice: 180.00,
     image: afnan9pmImg,
-    imageContain: true,
+    imageZoom: 1.1,
     inStock: true,
     slug: "afnan-9pm-100ml",
+  },
+  {
+    id: 23,
+    gender: "masculino",
+    active: true,
+    name: "Fakhar 100ml",
+    brand: "Lattafa",
+    description: "Frutal, Floral, Amadeirado, Masculino, Marcante",
+    fullDescription: "Fakhar, da Lattafa, é uma fragrância frutal e floral com fundo amadeirado almiscarado. A abertura combina pêssego, pera, laranja, maçã e cassis, seguida por um coração de flor de laranjeira, rosa e jasmim sambac. No fundo, baunilha, patchouli, sândalo e almíscar criam uma assinatura envolvente e sofisticada. Uma escolha marcante para o dia a dia e para ocasiões especiais.",
+    price: 180.00,
+    originalPrice: 180.00,
+    image: fakharHommeImg,
+    imageZoom: 1,
+    inStock: true,
+    slug: "fakhar-lattafa-100ml",
+  },
+  {
+    id: 24,
+    gender: "masculino",
+    active: true,
+    name: "The Kingdom EDP 100ml",
+    brand: "Lattafa",
+    description: "Aromático, Âmbar, Baunilha, Masculino, Elegante",
+    fullDescription: "The Kingdom, da Lattafa, é uma fragrância aromática e amadeirada de perfil quente e elegante. A abertura traz sálvia, lavanda e hortelã, evoluindo para um coração de tabaco, baunilha e flor de laranjeira. O fundo de benjoim, fava-tonka e labdano garante profundidade e boa fixação. Indicada para noites e ocasiões em que se deseja uma presença sofisticada.",
+    price: 190.00,
+    originalPrice: 190.00,
+    image: theKingdomImg,
+    imageZoom: 1.03,
+    inStock: true,
+    slug: "the-kingdom-100ml",
+  },
+  {
+    id: 25,
+    gender: "masculino",
+    active: true,
+    name: "Turathi Blue EDP 90ml",
+    brand: "Afnan",
+    description: "Cítrico, Aromático, Aquático, Masculino, Fresco",
+    fullDescription: "Turathi Blue, da Afnan, é uma fragrância aromática aquática de perfil limpo e fresco. A abertura cítrica combina bergamota e tangerina, seguida por um coração de notas amadeiradas e âmbar. O fundo de almíscar, especiarias e patchouli acrescenta profundidade discreta. Versátil para o dia a dia, o trabalho e climas quentes.",
+    price: 200.00,
+    originalPrice: 200.00,
+    image: turathiBlueImg,
+    imageZoom: 1,
+    inStock: true,
+    slug: "turathi-blue-90ml",
+  },
+  {
+    id: 26,
+    gender: "feminino",
+    active: true,
+    name: "Pure Aruba EDP 100ml",
+    brand: "Amaran Kings & Queens",
+    description: "Cítrico, Frutal, Âmbar, Feminino, Vibrante",
+    fullDescription: "Pure Aruba, da linha Kings & Queens da Amaran, é uma fragrância aromática frutal luminosa e envolvente. A abertura reúne limão, bergamota e laranja, dando lugar a um coração de notas frutadas. No fundo, baunilha de Madagascar, almíscar branco e âmbar deixam uma assinatura doce e aconchegante. Uma opção vibrante para o dia a dia e para momentos especiais.",
+    price: 190.00,
+    originalPrice: 190.00,
+    image: pureArubaImg,
+    imageZoom: 1,
+    inStock: true,
+    slug: "pure-aruba-100ml",
+  },
+  {
+    id: 27,
+    gender: "unissex",
+    active: true,
+    name: "Turathi Electric EDP 90ml",
+    brand: "Afnan",
+    description: "Frutal, Cítrico, Unissex, Fresco, Solar",
+    fullDescription: "Turathi Electric, da Afnan, é uma fragrância frutal cítrica de perfil fresco e solar. A abertura combina pera, toranja rosa, tangerina e bergamota, seguida por um coração de flor de laranjeira, maçã e cedro. O fundo de almíscar, âmbar e baunilha garante um toque suave e prolongado. Ideal para o calor, o dia a dia e ocasiões descontraídas.",
+    price: 200.00,
+    originalPrice: 200.00,
+    image: turathiElectricImg,
+    imageZoom: 1.22,
+    inStock: true,
+    slug: "turathi-electric-90ml",
+  },
+  {
+    id: 28,
+    gender: "masculino",
+    active: true,
+    name: "Club de Nuit Intense EDT 105ml",
+    brand: "Armaf",
+    description: "Amadeirado, Frutal, Especiado, Masculino, Marcante",
+    fullDescription: "Club de Nuit Intense Man, da Armaf, é uma fragrância amadeirada e afrutada de grande projeção. A abertura combina limão, abacaxi, bergamota, cassis e maçã, seguida por um coração de bétula, jasmim e rosa. O fundo de almíscar, âmbar cinza, patchouli e baunilha cria uma assinatura marcante e sofisticada. Uma escolha versátil, com ótima fixação, para o dia e a noite.",
+    price: 200.00,
+    originalPrice: 200.00,
+    image: clubDeNuitIntenseImg,
+    imageZoom: 1,
+    inStock: true,
+    slug: "club-de-nuit-intense-105ml",
   },
 ];
 
@@ -367,3 +472,8 @@ export const generateWhatsAppConsultLink = () => {
     "Olá! Não encontrei o perfume que procuro no site. Gostaria de consultar a disponibilidade.";
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 };
+
+// Link genérico de contato — usado no botão flutuante e no rodapé. Reutiliza o mesmo número.
+export const generateWhatsAppContactLink = (
+  message = "Olá! Vim pelo site e gostaria de saber mais sobre os perfumes árabes."
+) => `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;

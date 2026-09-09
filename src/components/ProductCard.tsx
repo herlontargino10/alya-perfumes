@@ -2,7 +2,7 @@ import { motion } from "framer-motion";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Product, generateWhatsAppLink } from "@/data/products";
-import { ShoppingBag } from "lucide-react";
+import WhatsAppIcon from "@/components/WhatsAppIcon";
 
 interface ProductCardProps {
   product: Product;
@@ -12,14 +12,25 @@ interface ProductCardProps {
 const ProductCard = ({ product, index }: ProductCardProps) => {
   // Enquadramento da imagem dentro da área do card.
   // Padrão: foto já recortada → object-cover (preenche a área).
-  // imageContain: render "justo" da embalagem → object-contain + respiro interno,
-  // para o produto aparecer no mesmo tamanho visual dos demais.
+  // imageContain: render "justo" da embalagem → object-contain + respiro interno.
+  // imageZoom: foto com fundo branco embutido → object-contain + zoom visual
+  //   controlado (transform: scale) para o produto ocupar mais o quadro SEM cortar
+  //   nenhuma parte. O container mantém overflow-hidden; nada é recortado no arquivo.
+  const hasZoom = typeof product.imageZoom === "number";
   const imageWrapClass = `relative aspect-[4/5] overflow-hidden ${
-    product.imageContain ? "bg-white" : "bg-secondary/30"
+    product.imageContain || hasZoom ? "bg-white" : "bg-secondary/30"
   }`;
-  const imageClass = `w-full h-full transition-transform duration-700 group-hover:scale-110 ${
-    product.imageContain ? "object-contain p-[6%] md:p-[8%]" : "object-cover"
+  const imageClass = `w-full h-full transition-transform duration-700 ${
+    product.imageContain
+      ? "object-contain p-[6%] md:p-[8%] group-hover:scale-110"
+      : hasZoom
+        ? "object-contain"
+        : "object-cover group-hover:scale-110"
   }`;
+  const imageStyle = hasZoom
+    ? { transform: `scale(${product.imageZoom})` }
+    : undefined;
+  const showGradient = !product.imageContain && !hasZoom;
 
   return (
     <motion.div
@@ -38,9 +49,10 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
         src={product.image}
         alt={`${product.brand} ${product.name}`}
         className={imageClass}
+        style={imageStyle}
         loading="lazy"
       />
-      {!product.imageContain && (
+      {showGradient && (
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
       )}
 
@@ -53,12 +65,11 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
     <img
       src={product.image}
       alt={`${product.brand} ${product.name}`}
-      className={`w-full h-full ${
-        product.imageContain ? "object-contain p-[6%] md:p-[8%]" : "object-cover"
-      }`}
+      className={imageClass}
+      style={imageStyle}
       loading="lazy"
     />
-    {!product.imageContain && (
+    {showGradient && (
       <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-60" />
     )}
   </div>
@@ -90,16 +101,11 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
         </p>
 
         {/* Price */}
-        <div className="mb-1 md:mb-2">
+        <div className="mb-3 md:mb-4">
           <span className="text-base md:text-xl font-bold text-foreground">
             R$ {product.price.toFixed(2).replace(".", ",")}
           </span>
         </div>
-
-        {/* Payment Info */}
-        <p className="text-[10px] md:text-xs text-[#A1A1AA] mb-2 md:mb-3">
-          Pague com Pix, Débito ou Crédito em até 12x
-        </p>
 
         {/* CTA Button */}
         {product.inStock ? (
@@ -109,9 +115,13 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
     rel="noopener noreferrer"
     className="block"
   >
-    <Button variant="buy" size="sm" className="w-full text-xs md:text-sm">
-      <ShoppingBag className="w-3 h-3 md:w-4 md:h-4" />
-      Comprar
+    <Button
+      variant="buy"
+      size="sm"
+      className="w-full gap-1.5 whitespace-nowrap text-[11px] tracking-normal md:text-sm md:tracking-wider"
+    >
+      <WhatsAppIcon className="h-4 w-4 shrink-0" />
+      Tenho interesse
     </Button>
   </a>
 ) : (
@@ -119,7 +129,7 @@ const ProductCard = ({ product, index }: ProductCardProps) => {
     variant="buy"
     size="sm"
     disabled
-    className="w-full text-xs md:text-sm opacity-60 cursor-not-allowed"
+    className="w-full whitespace-nowrap text-[11px] tracking-normal md:text-sm md:tracking-wider opacity-60 cursor-not-allowed"
   >
     Esgotado
   </Button>

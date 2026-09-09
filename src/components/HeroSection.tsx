@@ -33,8 +33,8 @@ const HeroSection = () => {
             transition={{ delay: 0.4, duration: 0.8 }}
             className="font-serif text-4xl md:text-5xl lg:text-7xl font-medium text-foreground leading-tight mb-6"
           >
-            O Luxo Árabe{" "}
-            <span className="text-gradient-gold italic">ao seu Alcance</span>
+            Perfumes Árabes{" "}
+            <span className="text-gradient-gold italic">para Todos os Momentos</span>
           </motion.h1>
 
           {/* Subtitle */}

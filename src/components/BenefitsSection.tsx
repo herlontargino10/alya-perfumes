@@ -9,12 +9,12 @@ const benefits = [
   },
   {
     icon: Sparkles,
-    title: "Fragrâncias Exclusivas",
+    title: "Aromas que Você Não Encontra em Todo Lugar",
     description: "Notas ricas e exóticas que você não encontra em marcas convencionais.",
   },
   {
     icon: Gift,
-    title: "Embalagem de Luxo",
+    title: "Frascos que Impressionam",
     description: "Frascos artesanais que decoram e impressionam como presente.",
   },
 ];

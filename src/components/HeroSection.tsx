@@ -26,16 +26,6 @@ const HeroSection = () => {
           transition={{ duration: 0.8 }}
           className="max-w-4xl mx-auto"
         >
-          {/* Logo/Brand */}
-          <motion.p
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2, duration: 0.6 }}
-            className="text-primary tracking-[0.3em] uppercase text-sm md:text-base mb-6"
-          >
-            ALYA PERFUMES
-          </motion.p>
-
           {/* Main Title */}
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
@@ -68,22 +58,8 @@ const HeroSection = () => {
               variant="gold"
               size="xl"
               onClick={scrollToProducts}
-              className="group"
             >
               Ver Todos os Perfumes
-              <svg
-                className="w-5 h-5 transition-transform group-hover:translate-y-1"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
             </Button>
           </motion.div>
         </motion.div>

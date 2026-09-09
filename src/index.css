@@ -1,0 +1,144 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap');
+
+/* ALYA PERFUMES - Luxury Arabic Design System */
+
+@layer base {
+  :root {
+    --background: 30 15% 6%;
+    --foreground: 40 20% 95%;
+
+    --card: 30 10% 10%;
+    --card-foreground: 40 20% 95%;
+
+    --popover: 30 10% 8%;
+    --popover-foreground: 40 20% 95%;
+
+    --primary: 43 74% 49%;
+    --primary-foreground: 30 15% 6%;
+
+    --secondary: 35 20% 15%;
+    --secondary-foreground: 40 20% 90%;
+
+    --muted: 30 10% 18%;
+    --muted-foreground: 40 10% 60%;
+
+    --accent: 43 60% 55%;
+    --accent-foreground: 30 15% 6%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 43 30% 25%;
+    --input: 30 10% 15%;
+    --ring: 43 74% 49%;
+
+    --radius: 0.5rem;
+
+    /* Custom luxury tokens */
+    --gold: 43 74% 49%;
+    --gold-light: 43 60% 65%;
+    --gold-dark: 43 80% 35%;
+    --cream: 40 30% 92%;
+    --cream-dark: 35 20% 85%;
+    --graphite: 30 10% 12%;
+    --graphite-light: 30 8% 20%;
+
+    /* Gradients */
+    --gradient-gold: linear-gradient(135deg, hsl(43 74% 49%), hsl(35 80% 40%));
+    --gradient-dark: linear-gradient(180deg, hsl(30 15% 6%), hsl(30 10% 3%));
+    --gradient-card: linear-gradient(145deg, hsl(30 10% 12%), hsl(30 10% 8%));
+    --gradient-hero: radial-gradient(ellipse at top, hsl(30 15% 12%), hsl(30 15% 4%));
+
+    /* Shadows */
+    --shadow-gold: 0 4px 30px hsl(43 74% 49% / 0.15);
+    --shadow-elegant: 0 10px 40px hsl(0 0% 0% / 0.4);
+    --shadow-card: 0 8px 32px hsl(0 0% 0% / 0.3);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 30 15% 6%;
+    --foreground: 40 20% 95%;
+    --card: 30 10% 10%;
+    --card-foreground: 40 20% 95%;
+    --popover: 30 10% 8%;
+    --popover-foreground: 40 20% 95%;
+    --primary: 43 74% 49%;
+    --primary-foreground: 30 15% 6%;
+    --secondary: 35 20% 15%;
+    --secondary-foreground: 40 20% 90%;
+    --muted: 30 10% 18%;
+    --muted-foreground: 40 10% 60%;
+    --accent: 43 60% 55%;
+    --accent-foreground: 30 15% 6%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 43 30% 25%;
+    --input: 30 10% 15%;
+    --ring: 43 74% 49%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Playfair Display', serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient-gold {
+    background: linear-gradient(135deg, hsl(43 74% 49%), hsl(43 60% 65%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .bg-gradient-hero {
+    background: radial-gradient(ellipse at top, hsl(30 15% 12%), hsl(30 15% 4%));
+  }
+
+  .bg-gradient-card {
+    background: linear-gradient(145deg, hsl(30 10% 12%), hsl(30 10% 8%));
+  }
+
+  .shadow-gold {
+    box-shadow: 0 4px 30px hsl(43 74% 49% / 0.15);
+  }
+
+  .shadow-elegant {
+    box-shadow: 0 10px 40px hsl(0 0% 0% / 0.4);
+  }
+
+  .border-gold {
+    border-color: hsl(43 74% 49% / 0.3);
+  }
+}

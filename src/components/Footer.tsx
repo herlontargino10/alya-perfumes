@@ -1,0 +1,142 @@
+import { motion } from "framer-motion";
+import { Instagram, Facebook, MessageCircle, MapPin } from "lucide-react";
+
+const TikTokIcon = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className}>
+    <path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-5.2 1.74 2.89 2.89 0 012.31-4.64 2.93 2.93 0 01.88.13V9.4a6.84 6.84 0 00-1-.05A6.33 6.33 0 005 20.1a6.34 6.34 0 0010.86-4.43v-7a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1-.1z"/>
+  </svg>
+);
+
+/* Logos oficiais das bandeiras (SVG), sem fundo.
+   Herdam a cor dourada da marca via `currentColor`. */
+
+const PixLogo = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} role="img" aria-label="Pix">
+    <path d="M5.283 18.36a3.505 3.505 0 0 0 2.493-1.032l3.6-3.6a.684.684 0 0 1 .946 0l3.613 3.613a3.504 3.504 0 0 0 2.493 1.032h.71l-4.56 4.56a3.647 3.647 0 0 1-5.156 0L4.85 18.36ZM18.428 5.627a3.505 3.505 0 0 0-2.493 1.032l-3.613 3.614a.67.67 0 0 1-.946 0l-3.6-3.6A3.505 3.505 0 0 0 5.283 5.64h-.434l4.573-4.572a3.646 3.646 0 0 1 5.156 0l4.559 4.559ZM1.068 9.422 3.79 6.699h1.492a2.483 2.483 0 0 1 1.744.722l3.6 3.6a1.73 1.73 0 0 0 2.443 0l3.614-3.613a2.482 2.482 0 0 1 1.744-.723h1.767l2.737 2.737a3.646 3.646 0 0 1 0 5.156l-2.736 2.736h-1.768a2.482 2.482 0 0 1-1.744-.722l-3.613-3.613a1.77 1.77 0 0 0-2.444 0l-3.6 3.6a2.483 2.483 0 0 1-1.744.722H3.791l-2.723-2.723a3.646 3.646 0 0 1 0-5.156Z" />
+  </svg>
+);
+
+const VisaLogo = ({ className }: { className?: string }) => (
+  <svg viewBox="0 8 24 8.5" fill="currentColor" className={className} role="img" aria-label="Visa">
+    <path d="M9.112 8.262L5.97 15.758H3.92L2.374 9.775c-.094-.368-.175-.503-.461-.658C1.447 8.864.677 8.627 0 8.479l.046-.217h3.3a.904.904 0 01.894.764l.817 4.338 2.018-5.102zm8.033 5.049c.008-1.979-2.736-2.088-2.717-2.972.006-.269.262-.555.822-.628a3.66 3.66 0 011.913.336l.34-1.59a5.207 5.207 0 00-1.814-.333c-1.917 0-3.266 1.02-3.278 2.479-.012 1.079.963 1.68 1.698 2.04.756.367 1.01.603 1.006.931-.005.504-.602.725-1.16.734-.975.015-1.54-.263-1.992-.473l-.351 1.642c.453.208 1.289.39 2.156.398 2.037 0 3.37-1.006 3.377-2.564m5.061 2.447H24l-1.565-7.496h-1.656a.883.883 0 00-.826.55l-2.909 6.946h2.036l.405-1.12h2.488zm-2.163-2.656l1.02-2.815.588 2.815zm-8.16-4.84l-1.603 7.496H8.34l1.605-7.496z" />
+  </svg>
+);
+
+const MastercardLogo = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 24 24" fill="currentColor" className={className} role="img" aria-label="Mastercard">
+    <path d="M11.343 18.031c.058.049.12.098.181.146-1.177.783-2.59 1.238-4.107 1.238C3.32 19.416 0 16.096 0 12c0-4.095 3.32-7.416 7.416-7.416 1.518 0 2.931.456 4.105 1.238-.06.051-.12.098-.165.15C9.6 7.489 8.595 9.688 8.595 12c0 2.311 1.001 4.51 2.748 6.031zm5.241-13.447c-1.52 0-2.931.456-4.105 1.238.06.051.12.098.165.15C14.4 7.489 15.405 9.688 15.405 12c0 2.31-1.001 4.507-2.748 6.031-.058.049-.12.098-.181.146 1.177.783 2.588 1.238 4.107 1.238C20.68 19.416 24 16.096 24 12c0-4.094-3.32-7.416-7.416-7.416zM12 6.174c-.096.075-.189.15-.28.231C10.156 7.764 9.169 9.765 9.169 12c0 2.236.987 4.236 2.551 5.595.09.08.185.158.28.232.096-.074.189-.152.28-.232 1.563-1.359 2.551-3.359 2.551-5.595 0-2.235-.987-4.236-2.551-5.595-.09-.08-.184-.156-.28-.231z" />
+  </svg>
+);
+
+const EloLogo = ({ className }: { className?: string }) => (
+  <svg viewBox="0 0 512 197" fill="currentColor" className={className} role="img" aria-label="Elo">
+    <path d="M79.8167916,43.3441044 C85.568446,41.4226005 91.7171758,40.3901014 98.1199512,40.3901014 C126.038117,40.3901014 149.347318,60.220168 154.686406,86.5779158 L194.261755,78.5052553 C185.179108,33.7109223 145.593949,0 98.1199512,0 C87.2414292,0 76.7909638,1.77290785 67.0143389,5.03947477 L79.8167916,43.3441044 Z" />
+    <path d="M33.111385,171.603675 L59.8742116,141.345914 C47.9275105,130.76223 40.3900497,115.31605 40.3900497,98.1070424 C40.3900497,80.9109433 47.9172351,65.4719929 59.8561393,54.9012173 L33.0908858,24.6388608 C12.8023494,42.6139298 7.3378154e-14,68.8695947 7.3378154e-14,98.1070424 C7.3378154e-14,127.362562 12.8074613,153.625818 33.111385,171.603675 Z" />
+    <path d="M154.676079,109.68987 C149.313755,136.035225 126.030372,155.826514 98.1199512,155.826514 C91.7151104,155.826514 85.5483082,154.793808 79.7992356,152.862132 L66.9787105,191.182226 C76.7579172,194.446093 87.2290368,196.214085 98.1199512,196.214085 C145.547994,196.214085 185.128505,162.559238 194.246264,117.80642 L154.676079,109.68987 Z" />
+    <path d="M228.869272,142.621822 C227.573226,140.521299 225.810398,137.162423 224.749809,134.690126 C218.482834,120.140335 218.18335,105.083486 223.476483,90.628704 C229.294747,74.7771877 240.411307,62.6413466 254.773662,56.4616356 C272.831038,48.6909898 292.802017,50.2230604 310.108099,60.4917696 C321.101768,66.7990197 328.895598,76.5374346 334.813518,90.3054671 L335.362813,91.6438214 L335.362813,91.6438214 L336.38724,94.3040713 C336.551981,94.7329669 336.714471,95.1504059 336.875831,95.550063 L228.869272,142.621822 Z M264.93497,79.8193733 C252.111863,85.3304073 245.50203,97.3588471 246.860038,111.462509 L301.179326,88.0846335 C291.838503,77.1064554 279.681491,73.4682332 264.93497,79.8193733 Z M328.949299,144.722862 L307.953359,130.685293 L307.922894,130.716274 L306.798277,129.957752 C303.557131,135.217838 298.499454,139.478266 292.117849,142.245401 C279.976328,147.525625 268.723967,146.167617 260.643561,139.08119 L259.900529,140.21097 C259.892784,140.198062 259.890202,140.188251 259.877294,140.188251 L246.096352,160.804671 C249.516674,163.18196 253.190524,165.195736 257.048713,166.804692 C272.272344,173.127949 287.847095,172.835693 303.19052,166.161832 C314.289525,161.352522 322.997816,154.017729 328.949299,144.722862 Z M374.627421,26.0992099 L374.627421,140.718545 L392.446242,147.940773 L382.321079,171.56753 L362.6501,163.376625 C358.235283,161.465603 355.23011,158.539431 352.955059,155.237355 C350.780181,151.870734 349.153153,147.251442 349.153153,141.030939 L349.153153,26.0992099 L374.627421,26.0992099 Z M420.791948,111.519308 C420.802275,101.758173 425.111756,93.0059925 431.931745,87.0570913 L413.649239,66.6709642 C401.249025,77.6315863 393.439705,93.6467864 393.424649,111.490908 C393.404076,129.34071 401.20307,145.373466 413.590375,156.361971 L431.852226,135.955707 C425.065284,129.983569 420.784203,121.257206 420.791948,111.519308 Z M453.275706,144.051603 C449.675694,144.041276 446.209417,143.446954 442.976016,142.370874 L434.245005,168.331547 C440.211979,170.334996 446.603911,171.426566 453.247307,171.436952 C482.195597,171.465292 506.368139,150.925292 511.968502,123.619521 L485.131579,118.139468 C482.079934,132.940206 468.975415,144.06193 453.275706,144.051603 Z M453.355225,51.6630861 C446.719574,51.6554232 440.330224,52.7340843 434.370995,54.7194611 L443.025586,80.7033694 C446.268798,79.6324536 449.735075,79.0407132 453.329923,79.0407132 C469.065776,79.0562038 482.180623,90.2440211 485.160495,105.086068 L512,99.6416431 C506.476057,72.2971449 482.326751,51.6807245 453.355225,51.6630861 Z" />
+  </svg>
+);
+
+const Footer = () => {
+  return (
+    <footer className="bg-secondary/30 border-t border-border/50">
+      <div className="container mx-auto px-4 py-12 md:py-16">
+        <div className="grid md:grid-cols-3 gap-10 md:gap-8">
+          {/* Brand */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+          >
+            <h3 className="font-serif text-2xl text-gradient-gold mb-4">
+              ALYA PERFUMES
+            </h3>
+            <p className="text-muted-foreground text-sm leading-relaxed mb-6">
+              Trazendo o luxo e a sofisticação dos perfumes árabes para você. 
+              Fragrâncias exclusivas com qualidade premium.
+            </p>
+            <div className="flex gap-4">
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                aria-label="Instagram"
+              >
+                <Instagram className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                aria-label="Facebook"
+              >
+                <Facebook className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                aria-label="TikTok"
+              >
+                <TikTokIcon className="w-5 h-5" />
+              </a>
+              <a
+                href="#"
+                className="w-10 h-10 rounded-full bg-secondary flex items-center justify-center text-muted-foreground hover:text-primary hover:bg-primary/10 transition-colors"
+                aria-label="WhatsApp"
+              >
+                <MessageCircle className="w-5 h-5" />
+              </a>
+            </div>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+          >
+            <h4 className="font-serif text-lg text-foreground mb-4">Contato</h4>
+            <ul className="space-y-3 text-sm text-muted-foreground">
+              <li className="flex items-center gap-3">
+                <MessageCircle className="w-4 h-4 text-primary" />
+                <span>(98) 98256-8085</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin className="w-4 h-4 text-primary mt-1" />
+                <span>São Paulo, SP - Brasil</span>
+              </li>
+            </ul>
+          </motion.div>
+
+          {/* Payment Methods */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+          >
+            <h4 className="font-serif text-lg text-foreground mb-3">Formas de Pagamento</h4>
+            <div className="flex items-center gap-5 md:gap-6 text-primary">
+              <PixLogo className="h-[26px] w-auto" />
+              <VisaLogo className="h-[18px] w-auto" />
+              <MastercardLogo className="h-[26px] w-auto" />
+              <EloLogo className="h-[26px] w-auto" />
+            </div>
+            <p className="text-xs text-muted-foreground mt-3">
+              Parcelamos em até 12x no cartão
+            </p>
+          </motion.div>
+        </div>
+
+        {/* Bottom Bar */}
+        <div className="border-t border-border/50 mt-10 pt-8 text-center">
+          <p className="text-sm text-muted-foreground">
+            © {new Date().getFullYear()} ALYA PERFUMES. Todos os direitos reservados.
+          </p>
+        </div>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

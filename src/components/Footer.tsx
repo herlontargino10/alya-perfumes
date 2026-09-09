@@ -103,7 +103,7 @@ const Footer = () => {
               </li>
               <li className="flex items-start gap-3">
                 <MapPin className="w-4 h-4 text-primary mt-1" />
-                <span>São Paulo, SP - Brasil</span>
+                <span>São Luís, MA - Brasil</span>
               </li>
             </ul>
           </motion.div>

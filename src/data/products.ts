@@ -352,7 +352,7 @@ export const activeProducts: Product[] = products.filter(isProductActive);
 export const getActiveProductById = (id: number) =>
   activeProducts.find((p) => p.id === id);
 
-export const WHATSAPP_NUMBER = "5599984184427";
+export const WHATSAPP_NUMBER = "5598982568085";
 
 export const generateWhatsAppLink = (product: Product) => {
   const message = encodeURIComponent(

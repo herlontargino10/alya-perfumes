@@ -26,6 +26,8 @@ import turathiBlueImg from "@/assets/products/turathi-blue.webp";
 import pureArubaImg from "@/assets/products/pure-aruba.jpg";
 import turathiElectricImg from "@/assets/products/turathi-electric.webp";
 import clubDeNuitIntenseImg from "@/assets/products/club-de-nuit-intense.jpg";
+import atheeriImg from "@/assets/products/atheeri.jpg";
+import yumYumImg from "@/assets/products/yum.jpg";
 
 export type ProductGender = "feminino" | "masculino" | "unissex";
 
@@ -438,6 +440,37 @@ export const products: Product[] = [
     imageZoom: 1,
     inStock: true,
     slug: "club-de-nuit-intense-105ml",
+  },
+  {
+    id: 29,
+    gender: "feminino",
+    active: true,
+    name: "Atheeri EDP 100ml",
+    brand: "Lattafa",
+    description: "Feminino, Importado, Sofisticado, Versátil",
+    fullDescription: "Atheeri, da Lattafa, é uma fragrância feminina importada que une sofisticação e presença marcante. Versátil, acompanha bem tanto o dia a dia quanto ocasiões especiais, deixando uma impressão elegante e memorável. Uma escolha certeira para quem busca um perfume feminino de personalidade, com o padrão de qualidade das fragrâncias árabes importadas.",
+    price: 350.00,
+    originalPrice: 350.00,
+    image: atheeriImg,
+    imageZoom: 1,
+    inStock: true,
+    slug: "atheeri-100ml",
+  },
+  {
+    id: 30,
+    gender: "feminino",
+    active: true,
+    name: "Yum Yum",
+    brand: "Armaf",
+    description: "Feminino, Elegante, Envolvente, Marcante",
+    fullDescription: "Yum Yum, da Armaf, é um Eau de Parfum feminino de personalidade marcante. Uma fragrância elegante e envolvente, pensada para a mulher que gosta de ser notada — do dia a dia aos momentos especiais. Com apresentação sofisticada e o charme das fragrâncias importadas, é a escolha certa para quem quer uma assinatura feminina inconfundível.",
+    // Preço a definir — informar o valor depois (price/originalPrice ficam em 0 até lá).
+    price: 299.90,
+    originalPrice: 0,
+    image: yumYumImg,
+    imageZoom: 1,
+    inStock: true,
+    slug: "yum-yum-100ml",
   },
 ];
 
